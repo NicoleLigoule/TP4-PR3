@@ -10,6 +10,9 @@
         .auto-style1 {
             width: 100%;
         }
+        .auto-style2 {
+            height: 25px;
+        }
     </style>
 </head>
 <body>
@@ -18,20 +21,32 @@
         </div>
         <table class="auto-style1">
             <tr>
-                <td>
+                <td class="auto-style2">
                     <asp:Label ID="lblInicio" runat="server" Font-Overline="False" Font-Strikeout="False" Font-Underline="True" Text="DESTINO INICIO"></asp:Label>
                 </td>
-                <td>&nbsp;</td>
+                <td class="auto-style2"></td>
+                <td class="auto-style2"></td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="lblProvInicio" runat="server" Font-Bold="True" Text="PROVINCIA:"></asp:Label>
+&nbsp;</td>
+                <td>
+                    <asp:DropDownList ID="ddlProvInicio" runat="server">
+                        <asp:ListItem>-- Seleccionar --</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td>
+                    <asp:Label ID="lblLocInicio" runat="server" Font-Bold="True" Text="LOCALIDADES:"></asp:Label>
+                </td>
+                <td>
+                    <asp:DropDownList ID="ddlLocInicio" runat="server">
+                        <asp:ListItem>-- Seleccionar --</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
