@@ -57,8 +57,14 @@
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td>
+                    <asp:Label ID="lblProvincia" runat="server" Font-Bold="True" Text="PROVINCIA:"></asp:Label>
+                </td>
+                <td>
+                    <asp:DropDownList ID="ddlProvincia" runat="server">
+                        <asp:ListItem>-- Seleccionar --</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
