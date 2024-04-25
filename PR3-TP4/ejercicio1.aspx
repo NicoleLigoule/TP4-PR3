@@ -1,6 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ejercicio1.aspx.cs" Inherits="PR3_TP4.ejercicio1" %>
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -30,7 +28,7 @@
             <tr>
                 <td>
                     <asp:Label ID="lblProvInicio" runat="server" Font-Bold="True" Text="PROVINCIA:"></asp:Label>
-&nbsp;</td>
+                &nbsp;</td>
                 <td>
                     <asp:DropDownList ID="ddlProvInicio" runat="server">
                         <asp:ListItem>-- Seleccionar --</asp:ListItem>
@@ -67,9 +65,21 @@
                 </td>
                 <td>&nbsp;</td>
             </tr>
+           <%-- <tr>
+                <td>
+                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>--%>
             <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td>
+                    <asp:Label ID="lblLocalidad" runat="server" Font-Bold="True" Text="LOCALIDAD:"></asp:Label>
+                </td>
+                <td>
+                    <asp:DropDownList ID="ddlLocalidad" runat="server">
+                        <asp:ListItem>-- Seleccionar --</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
                 <td>&nbsp;</td>
             </tr>
         </table>
