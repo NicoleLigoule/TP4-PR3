@@ -17,9 +17,12 @@ namespace PR3_TP4
         {
             if (!IsPostBack)
             {
-                cargarDdl();
 
-                cargarProvinciasInicio();
+                destinoFinalProvincias();
+
+                cargarProvinciasInicio();                
+                
+                cargarDdl();
             }
         }
         private void cargarProvinciasInicio()
@@ -36,6 +39,9 @@ namespace PR3_TP4
             cn.Close();
 
             ddlProvInicio.Items.Insert(0,"--Seleccione una Localidad--");
+
+            deshabilitarDestinoFinalProvincias();
+
         }
 
         private void destinoFinalProvincias()
@@ -56,6 +62,17 @@ namespace PR3_TP4
             eliminarInicioDeDestino();
         }
 
+        private void deshabilitarDestinoFinalProvincias()
+        {
+            foreach (ListItem item in ddlProvDestino.Items)
+            {
+                if (item.Value == item.Value)
+                {
+                    item.Enabled = false;
+                }
+            }
+
+        }
 
         private void cargarDdl()
         {
@@ -76,6 +93,17 @@ namespace PR3_TP4
         // Elimino de ddlProvDestino el elemento seleccionado en ddlProvInicio
         private void eliminarInicioDeDestino()
         {
+
+            foreach (ListItem item in ddlProvDestino.Items)
+            {
+                if (item.Value == item.Value)
+                {
+                    item.Enabled = true;
+                }
+            }
+
+
+
             string selectedValue = ddlProvInicio.SelectedValue;
 
             // Iterar a través de los elementos en ddlProvDestino y deshabilitar la provincia seleccionada en ddlProvInicio
@@ -86,7 +114,6 @@ namespace PR3_TP4
                     item.Enabled = false;
                 }
             }
-
         }
     }
 }
