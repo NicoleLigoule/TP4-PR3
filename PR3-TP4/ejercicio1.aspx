@@ -26,9 +26,10 @@
                     <asp:Label ID="Label3" runat="server" Font-Bold="True" Text="PROVINCIA: "></asp:Label>
                 </td>
                 <td>
-                    <asp:DropDownList ID="ddlProvInicio" runat="server">
+                    <asp:DropDownList ID="ddlProvInicio" runat="server" OnSelectedIndexChanged="ddlProvInicio_SelectedIndexChanged" >
                     </asp:DropDownList>
-                </td>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
@@ -45,7 +46,8 @@
                 <td>
                     <asp:Label ID="Label2" runat="server" Font-Underline="True" Text="DESTINO FINAL"></asp:Label>
                 </td>
-                <td>&nbsp;</td>
+                <td>
+                    &nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
@@ -71,6 +73,8 @@
         </table>
         <div>
         </div>
+        <asp:Label ID="lblTest" runat="server" Text="lblTest"></asp:Label>
+        <asp:Button ID="Button1" runat="server" Text="Button" />
     </form>
 </body>
 </html>
