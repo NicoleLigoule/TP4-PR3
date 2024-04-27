@@ -17,14 +17,11 @@ namespace PR3_TP4
         {
             if (!IsPostBack)
             {
-
-                destinoFinalProvincias();
-
-                cargarProvinciasInicio();                
-                
+                cargarProvinciasInicio();
                 cargarDdl();
             }
         }
+
         private void cargarProvinciasInicio()
         {
             cn.Open();
@@ -38,16 +35,47 @@ namespace PR3_TP4
 
             cn.Close();
 
-            ddlProvInicio.Items.Insert(0,"--Seleccione una Localidad--");
-
-            deshabilitarDestinoFinalProvincias();
-
+            ddlProvInicio.Items.Insert(0, "--Seleccione una Provincia--");
         }
 
-        private void destinoFinalProvincias()
+        private void cargarDdl()
+        {
+            ddlLocaInicio.Items.Add("--Seleccione una Localidad--");
+            ddlProvDestino.Items.Add("--Seleccione una Provincia--");
+            ddlLocaDestino.Items.Add("--Seleccione una Localidad--");
+        }
+
+        protected void ddlProvInicio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlProvInicio.SelectedIndex != 0)
+            {
+                cargarLocalidadesInicio(ddlProvInicio.SelectedValue);
+                cargarProvinciasDestino();
+            }
+        }
+
+        private void cargarLocalidadesInicio(string idProvincia)
         {
             cn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Provincias", cn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Localidades WHERE IdProvincia = @IdProvincia", cn);
+            cmd.Parameters.AddWithValue("@IdProvincia", idProvincia);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            ddlLocaInicio.DataSource = dr;
+            ddlLocaInicio.DataTextField = "NombreLocalidad";
+            ddlLocaInicio.DataValueField = "IdLocalidad";
+            ddlLocaInicio.DataBind();
+
+            cn.Close();
+
+            ddlLocaInicio.Items.Insert(0, "--Seleccione una Localidad--");
+        }
+
+        private void cargarProvinciasDestino()
+        {
+            cn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Provincias WHERE IdProvincia NOT IN (@IdProvInicio)", cn);
+            cmd.Parameters.AddWithValue("@IdProvInicio", ddlProvInicio.SelectedValue);
             SqlDataReader dr = cmd.ExecuteReader();
 
             ddlProvDestino.DataSource = dr;
@@ -56,64 +84,33 @@ namespace PR3_TP4
             ddlProvDestino.DataBind();
 
             cn.Close();
-            
-            ddlProvDestino.Items.Insert(0, "--Seleccione una Localidad--");
-            
-            eliminarInicioDeDestino();
+
+            ddlProvDestino.Items.Insert(0, "--Seleccione una Provincia--");
         }
 
-        private void deshabilitarDestinoFinalProvincias()
+        protected void ddlProvDestino_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (ListItem item in ddlProvDestino.Items)
+            if (ddlProvDestino.SelectedIndex != 0)
             {
-                if (item.Value == item.Value)
-                {
-                    item.Enabled = false;
-                }
-            }
-
-        }
-
-        private void cargarDdl()
-        {
-            ddlLocaInicio.Items.Add("--Seleccione una Localidad--");
-            ddlProvDestino.Items.Add("--Seleccione una Localidad--");
-            ddlLocaDestino.Items.Add("--Seleccione una Localidad--");
-        }
-
-        protected void ddlProvInicio_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var seleccionProvinciaInicio=ddlProvInicio.SelectedIndex;
-            if (seleccionProvinciaInicio != 0)
-            {
-                destinoFinalProvincias();
+                cargarLocalidadesDestino(ddlProvDestino.SelectedValue);
             }
         }
 
-        // Elimino de ddlProvDestino el elemento seleccionado en ddlProvInicio
-        private void eliminarInicioDeDestino()
+        private void cargarLocalidadesDestino(string idProvincia)
         {
+            cn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Localidades WHERE IdProvincia = @IdProvincia", cn);
+            cmd.Parameters.AddWithValue("@IdProvincia", idProvincia);
+            SqlDataReader dr = cmd.ExecuteReader();
 
-            foreach (ListItem item in ddlProvDestino.Items)
-            {
-                if (item.Value == item.Value)
-                {
-                    item.Enabled = true;
-                }
-            }
+            ddlLocaDestino.DataSource = dr;
+            ddlLocaDestino.DataTextField = "NombreLocalidad";
+            ddlLocaDestino.DataValueField = "IdLocalidad";
+            ddlLocaDestino.DataBind();
 
+            cn.Close();
 
-
-            string selectedValue = ddlProvInicio.SelectedValue;
-
-            // Iterar a través de los elementos en ddlProvDestino y deshabilitar la provincia seleccionada en ddlProvInicio
-            foreach (ListItem item in ddlProvDestino.Items)
-            {
-                if (item.Value == selectedValue)
-                {
-                    item.Enabled = false;
-                }
-            }
+            ddlLocaDestino.Items.Insert(0, "--Seleccione una Localidad--");
         }
     }
 }
