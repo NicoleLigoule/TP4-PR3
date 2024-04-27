@@ -32,7 +32,6 @@ namespace PR3_TP4
             ddlProvInicio.DataTextField = "NombreProvincia";
             ddlProvInicio.DataValueField = "IdProvincia";
             ddlProvInicio.DataBind();
-
             cn.Close();
 
             ddlProvInicio.Items.Insert(0, "--Seleccione una Provincia--");
@@ -111,6 +110,14 @@ namespace PR3_TP4
             cn.Close();
 
             ddlLocaDestino.Items.Insert(0, "--Seleccione una Localidad--");
+        }
+
+        protected void ddlProvDestino_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+            if (ddlProvDestino.SelectedIndex != 0)
+            {
+                cargarLocalidadesDestino(ddlProvDestino.SelectedValue);
+            }
         }
     }
 }
