@@ -11,7 +11,11 @@
         <div>
             <br />
             <asp:Label runat="server" Text="Id Producto:" ID="IdProducto"></asp:Label>
-            <asp:DropDownList runat="server" ID="ddlProducto"></asp:DropDownList>
+            &nbsp;<asp:DropDownList runat="server" ID="ddlProducto"></asp:DropDownList>
+            <br />
+            <br />
+            Id Categoria: <asp:DropDownList ID="ddlCategoria" runat="server">
+            </asp:DropDownList>
         </div>
     </form>
 </body>
