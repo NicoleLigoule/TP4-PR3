@@ -51,6 +51,13 @@ namespace PR3_TP4
                 cargarLocalidadesInicio(ddlProvInicio.SelectedValue);
                 cargarProvinciasDestino();
             }
+            else
+            {
+                ddlLocaInicio.SelectedIndex = 0;
+                ddlProvDestino.SelectedIndex = 0;
+
+            }
+            ddlLocaDestino.SelectedIndex = 0;
         }
 
         private void cargarLocalidadesInicio(string idProvincia)
@@ -112,12 +119,5 @@ namespace PR3_TP4
             ddlLocaDestino.Items.Insert(0, "--Seleccione una Localidad--");
         }
 
-        protected void ddlProvDestino_SelectedIndexChanged1(object sender, EventArgs e)
-        {
-            if (ddlProvDestino.SelectedIndex != 0)
-            {
-                cargarLocalidadesDestino(ddlProvDestino.SelectedValue);
-            }
-        }
     }
 }

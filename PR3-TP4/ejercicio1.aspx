@@ -54,7 +54,7 @@
                             <asp:Label ID="Label5" runat="server" Font-Bold="True" Text="PROVINCIA:"></asp:Label>
                         </td>
                         <td>
-                            <asp:DropDownList ID="ddlProvDestino" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlProvDestino_SelectedIndexChanged1">
+                            <asp:DropDownList ID="ddlProvDestino" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlProvDestino_SelectedIndexChanged">
                             </asp:DropDownList>
                         </td>
                         <td>&nbsp;</td>
