@@ -19,9 +19,45 @@ namespace PR3_TP4
             gvtabla.DataSource = dr;
             gvtabla.DataBind();
             cn.Close();
-            
+        }
 
+        protected void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            filtrarPorIdProducto();
+        }
 
+        protected void filtrarPorIdProducto()
+        {
+            string idProducto = txtIdProducto.Text.Trim();
+            string operador = ddlProducto.SelectedValue;
+
+            string condition = "";
+            switch (operador)
+            {
+                case "igual a:":
+                    condition = "=";
+                    break;
+                case "mayor a:":
+                    condition = ">";
+                    break;
+                case "menor a:":
+                    condition = "<";
+                    break;
+                default:
+                    condition = "=";
+                    break;
+            }
+            string query = "SELECT IdProducto, NombreProducto, IdCategoría, CantidadPorUnidad, PrecioUnidad FROM Productos WHERE IdProducto " + condition + " @IdProducto";
+
+            using (SqlCommand cmd = new SqlCommand(query, cn))
+            {
+                cmd.Parameters.AddWithValue("@IdProducto", idProducto);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                gvtabla.DataSource = dr;
+                gvtabla.DataBind();
+                cn.Close();
+            }
         }
     }
 }

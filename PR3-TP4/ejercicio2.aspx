@@ -20,10 +20,14 @@
                     <td>
             <asp:Label runat="server" Text="Id Producto:" ID="IdProducto"></asp:Label>
                     </td>
-                    <td><asp:DropDownList runat="server" ID="ddlProducto"></asp:DropDownList>
+                    <td><asp:DropDownList runat="server" ID="ddlProducto">
+                        <asp:ListItem>igual a:</asp:ListItem>
+                        <asp:ListItem>mayor a:</asp:ListItem>
+                        <asp:ListItem>menor a:</asp:ListItem>
+                        </asp:DropDownList>
                     </td>
                     <td>
-            <asp:TextBox ID="txtIdProducto" runat="server" Width="302px"></asp:TextBox>
+            <asp:TextBox ID="txtIdProducto" runat="server" Width="300px"></asp:TextBox>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
@@ -32,15 +36,19 @@
                     <td> <asp:DropDownList ID="ddlCategoria" runat="server">
             </asp:DropDownList>
                     </td>
-                    <td>&nbsp;</td>
+                    <td>
+                        <asp:TextBox ID="txtIdCategoria" runat="server" Width="300px"></asp:TextBox>
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
                     <td>
-            <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" />
+            <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" OnClick="btnFiltrar_Click" />
                     </td>
-                    <td>&nbsp;</td>
+                    <td>
+                        <asp:Button ID="btnQuitarFiltro" runat="server" Text="Quitar filtro" />
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
