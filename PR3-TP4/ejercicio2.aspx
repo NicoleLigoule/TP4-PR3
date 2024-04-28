@@ -11,11 +11,18 @@
         <div>
             <br />
             <asp:Label runat="server" Text="Id Producto:" ID="IdProducto"></asp:Label>
+            &nbsp;&nbsp;&nbsp;
             &nbsp;<asp:DropDownList runat="server" ID="ddlProducto"></asp:DropDownList>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="txtIdProducto" runat="server" Width="302px"></asp:TextBox>
             <br />
             <br />
-            Id Categoria: <asp:DropDownList ID="ddlCategoria" runat="server">
+            IdCategoria:&nbsp;&nbsp;&nbsp;&nbsp; <asp:DropDownList ID="ddlCategoria" runat="server">
             </asp:DropDownList>
+            <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" />
+&nbsp;&nbsp;&nbsp;
         </div>
     </form>
 </body>
