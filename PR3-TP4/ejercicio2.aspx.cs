@@ -14,8 +14,14 @@ namespace PR3_TP4
         protected void Page_Load(object sender, EventArgs e)
         {
             cn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Clientes", cn);
+            SqlCommand cmd = new SqlCommand("SELECT IdProducto, NombreProducto, IdCategoría, CantidadPorUnidad, PrecioUnidad FROM Productos", cn);
             SqlDataReader dr = cmd.ExecuteReader();
+            gvtabla.DataSource = dr;
+            gvtabla.DataBind();
+            cn.Close();
+            
+
+
         }
     }
 }
