@@ -5,24 +5,60 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+            height: 226px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <br />
+            <table class="auto-style1">
+                <tr>
+                    <td>
             <asp:Label runat="server" Text="Id Producto:" ID="IdProducto"></asp:Label>
-            &nbsp;&nbsp;&nbsp;
-            &nbsp;<asp:DropDownList runat="server" ID="ddlProducto"></asp:DropDownList>
-            &nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td><asp:DropDownList runat="server" ID="ddlProducto"></asp:DropDownList>
+                    </td>
+                    <td>
             <asp:TextBox ID="txtIdProducto" runat="server" Width="302px"></asp:TextBox>
-            <br />
-            <br />
-            IdCategoria:&nbsp;&nbsp;&nbsp;&nbsp; <asp:DropDownList ID="ddlCategoria" runat="server">
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>IdCategoria:&nbsp;&nbsp;&nbsp;</td>
+                    <td> <asp:DropDownList ID="ddlCategoria" runat="server">
             </asp:DropDownList>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+            <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" />
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <asp:GridView ID="gvtabla" runat="server">
+                        </asp:GridView>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            &nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <br />
+            <br />
+            &nbsp;&nbsp;
             <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" />
-&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;
         </div>
     </form>
 </body>
