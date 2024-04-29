@@ -23,7 +23,9 @@ namespace PR3_TP4
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
-            filtrarPorIdProducto();
+            if (txtIdProducto.Text == "" && txtIdCategoria.Text != "") { filtraridCategorias(); }
+
+            if (txtIdProducto.Text != "" && txtIdCategoria.Text == "") { filtrarPorIdProducto(); }
         }
 
         protected void filtrarPorIdProducto()
@@ -58,6 +60,20 @@ namespace PR3_TP4
                 gvtabla.DataBind();
                 cn.Close();
             }
+
+        }
+        protected void filtraridCategorias()
+        {
+            string comparacion = "=";
+            if (ddlCategoria.Text == "mayor a:") { comparacion = ">"; }
+            if (ddlCategoria.Text == "menor a:") { comparacion = "<"; }
+            int numero = int.Parse(txtIdCategoria.Text);
+            cn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT IdProducto, NombreProducto, IdCategoría, CantidadPorUnidad, PrecioUnidad FROM Productos WHERE IdCategoría" + comparacion + "" + numero + "", cn);
+            SqlDataReader dr = cmd.ExecuteReader();
+            gvtabla.DataSource = dr;
+            gvtabla.DataBind();
+            cn.Close();
         }
     }
 }

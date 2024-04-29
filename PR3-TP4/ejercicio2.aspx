@@ -34,6 +34,9 @@
                 <tr>
                     <td>IdCategoria:&nbsp;&nbsp;&nbsp;</td>
                     <td> <asp:DropDownList ID="ddlCategoria" runat="server">
+                        <asp:ListItem>igual a:</asp:ListItem>
+                        <asp:ListItem>mayor a:</asp:ListItem>
+                        <asp:ListItem>menor a:</asp:ListItem>
             </asp:DropDownList>
                     </td>
                     <td>
