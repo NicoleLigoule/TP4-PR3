@@ -30,7 +30,9 @@
                             <asp:DropDownList ID="ddlProvInicio" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlProvInicio_SelectedIndexChanged">
                             </asp:DropDownList>
                         </td>
-                        <td>&nbsp;</td>
+                        <td>
+                            <asp:RequiredFieldValidator ID="refv1" runat="server" ControlToValidate="ddlProvInicio">Debe seleccionar una opción</asp:RequiredFieldValidator>
+                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -40,7 +42,9 @@
                             <asp:DropDownList ID="ddlLocaInicio" runat="server">
                             </asp:DropDownList>
                         </td>
-                        <td>&nbsp;</td>
+                        <td>
+                            <asp:RequiredFieldValidator ID="rfv2" runat="server" ControlToValidate="ddlLocaInicio">Debe seleccionar una opción</asp:RequiredFieldValidator>
+                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -57,7 +61,9 @@
                             <asp:DropDownList ID="ddlProvDestino" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlProvDestino_SelectedIndexChanged">
                             </asp:DropDownList>
                         </td>
-                        <td>&nbsp;</td>
+                        <td>
+                            <asp:RequiredFieldValidator ID="rfv3" runat="server" ControlToValidate="ddlProvDestino">Debe seleccionar una opción</asp:RequiredFieldValidator>
+                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -67,7 +73,9 @@
                             <asp:DropDownList ID="ddlLocaDestino" runat="server">
                             </asp:DropDownList>
                         </td>
-                        <td>&nbsp;</td>
+                        <td>
+                            <asp:RequiredFieldValidator ID="rfv4" runat="server" ControlToValidate="ddlLocaDestino">Debe seleccionar una opción</asp:RequiredFieldValidator>
+                        </td>
                     </tr>
                 </table>
             </ContentTemplate>

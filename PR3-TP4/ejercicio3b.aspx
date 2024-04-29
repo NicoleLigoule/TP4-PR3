@@ -16,12 +16,15 @@
         <div>
             <table class="auto-style1">
                 <tr>
-                    <td>&nbsp;</td>
+                    <td>
+                        <asp:Label ID="Label1" runat="server" Font-Bold="True" Text="Listado de libros:"></asp:Label>
+                        <br />
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:GridView ID="GridView1" runat="server">
+                        <asp:GridView ID="gvTabla" runat="server">
                         </asp:GridView>
                     </td>
                     <td>&nbsp;</td>

@@ -19,7 +19,9 @@ namespace PR3_TP4
             {
                 cargarProvinciasInicio();
                 cargarDdl();
+
             }
+            ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
         }
 
         private void cargarProvinciasInicio()
