@@ -27,7 +27,7 @@
                         </asp:DropDownList>
                     </td>
                     <td>
-            <asp:TextBox ID="txtIdProducto" runat="server" Width="300px"></asp:TextBox>
+            <asp:TextBox ID="txtIdProducto" runat="server" Width="300px" OnTextChanged="txtIdProducto_TextChanged"></asp:TextBox>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
@@ -40,7 +40,7 @@
             </asp:DropDownList>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtIdCategoria" runat="server" Width="300px"></asp:TextBox>
+                        <asp:TextBox ID="txtIdCategoria" runat="server" Width="300px" OnTextChanged="txtIdCategoria_TextChanged"></asp:TextBox>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
@@ -74,3 +74,13 @@
     </form>
 </body>
 </html>
+<script>
+    document.getElementById('<%= txtIdProducto.ClientID %>').addEventListener('input', function () {
+        this.value = this.value.replace(/[^0-9]/g, '');
+    });
+</script>
+<script>
+    document.getElementById('<%= txtIdCategoria.ClientID %>').addEventListener('input', function () {
+        this.value = this.value.replace(/[^0-9]/g, '');
+    });
+</script>

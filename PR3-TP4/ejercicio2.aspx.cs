@@ -75,5 +75,16 @@ namespace PR3_TP4
             gvtabla.DataBind();
             cn.Close();
         }
+
+        protected void txtIdProducto_TextChanged(object sender, EventArgs e)
+        {
+
+            txtIdProducto.Text = new string(txtIdProducto.Text.Where(char.IsDigit).ToArray());
+        }
+
+        protected void txtIdCategoria_TextChanged(object sender, EventArgs e)
+        {
+            txtIdCategoria.Text = new string(txtIdCategoria.Text.Where(char.IsDigit).ToArray());
+        }
     }
 }
