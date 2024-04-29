@@ -50,7 +50,7 @@
             <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" OnClick="btnFiltrar_Click" />
                     </td>
                     <td>
-                        <asp:Button ID="btnQuitarFiltro" runat="server" Text="Quitar filtro" />
+                        <asp:Button ID="btnQuitarFiltro" runat="server" Text="Quitar filtro" OnClick="btnQuitarFiltro_Click" />
                     </td>
                     <td>&nbsp;</td>
                 </tr>

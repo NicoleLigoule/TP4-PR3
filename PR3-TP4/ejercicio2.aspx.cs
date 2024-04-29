@@ -19,6 +19,7 @@ namespace PR3_TP4
             gvtabla.DataSource = dr;
             gvtabla.DataBind();
             cn.Close();
+            
         }
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
@@ -26,6 +27,8 @@ namespace PR3_TP4
             if (txtIdProducto.Text == "" && txtIdCategoria.Text != "") { filtraridCategorias(); }
 
             if (txtIdProducto.Text != "" && txtIdCategoria.Text == "") { filtrarPorIdProducto(); }
+
+            if (txtIdProducto.Text != "" && txtIdCategoria.Text != "" )  { FiltrarPorCateYProdu(); }
         }
 
         protected void filtrarPorIdProducto()
@@ -69,7 +72,7 @@ namespace PR3_TP4
             if (ddlCategoria.Text == "menor a:") { comparacion = "<"; }
             int numero = int.Parse(txtIdCategoria.Text);
             cn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT IdProducto, NombreProducto, IdCategoría, CantidadPorUnidad, PrecioUnidad FROM Productos WHERE IdCategoría" + comparacion + "" + numero + "", cn);
+            SqlCommand cmd = new SqlCommand("SELECT IdProducto, NombreProducto, IdCategoría, CantidadPorUnidad, PrecioUnidad FROM Productos WHERE IdCategoría" + comparacion + "" + numero + "" , cn);
             SqlDataReader dr = cmd.ExecuteReader();
             gvtabla.DataSource = dr;
             gvtabla.DataBind();
@@ -85,6 +88,31 @@ namespace PR3_TP4
         protected void txtIdCategoria_TextChanged(object sender, EventArgs e)
         {
             txtIdCategoria.Text = new string(txtIdCategoria.Text.Where(char.IsDigit).ToArray());
+        }
+
+        protected void FiltrarPorCateYProdu()
+        {
+            string comparacion = "=";
+            if (ddlCategoria.Text == "mayor a:") { comparacion = ">"; }
+            if (ddlCategoria.Text == "menor a:") { comparacion = "<"; }
+            int numero = int.Parse(txtIdCategoria.Text);
+
+            string comparacion2 = "=";
+            if (ddlProducto.Text == "mayor a:") { comparacion2 = ">"; }
+            if (ddlProducto.Text == "menor a:") { comparacion2 = "<"; }
+            int numero2 = int.Parse(txtIdProducto.Text);
+            cn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT IdProducto, NombreProducto, IdCategoría, CantidadPorUnidad, PrecioUnidad FROM Productos WHERE IdCategoría" + comparacion + "" + numero + "AND IdProducto" + comparacion2 + "" + numero2 + "", cn);
+            SqlDataReader dr = cmd.ExecuteReader();
+            gvtabla.DataSource = dr;
+            gvtabla.DataBind();
+            cn.Close();
+        }
+
+        protected void btnQuitarFiltro_Click(object sender, EventArgs e)
+        {
+            txtIdProducto.Text = "";
+            txtIdCategoria.Text = "";
         }
     }
 }
