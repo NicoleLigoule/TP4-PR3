@@ -16,7 +16,8 @@ namespace PR3_TP4
 
         protected void lblibros_Click(object sender, EventArgs e)
         {
-            Server.Transfer("ejercicio3b.aspx");
+            string temaSeleccionado = ddlTema.SelectedValue;
+            Server.Transfer("ejercicio3b.aspx?tema=" + HttpUtility.UrlEncode(temaSeleccionado));
         }
     }
 }

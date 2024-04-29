@@ -15,13 +15,22 @@ namespace PR3_TP4
         {
             if (!IsPostBack)
             {
+                string tema = Request.QueryString["tema"];
+                int idTemaSeleccionado = 0;
 
-               string tema = HttpContext.Current.Items["ddlTema"] as string;
-            
-                int idtema =1;
-                if (tema == "Tema 1") { idtema = 1; }
+                switch (tema)
+                {
+                    case "Tema 1":
+                        idTemaSeleccionado = 1;
+                        break;
+                    case "Tema 2":
+                        idTemaSeleccionado = 2;
+                        break;
+                    default:
+                        break;
+                }
                 cn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT IdLibro,IdTema,Titulo,Precio,Autor FROM Libros where IdTema=" + idtema+"", cn);
+                SqlCommand cmd = new SqlCommand("SELECT IdLibro,IdTema,Titulo,Precio,Autor FROM Libros where IdTema=" + idTemaSeleccionado+"", cn);
                 SqlDataReader dr = cmd.ExecuteReader();
                 gvTabla.DataSource = dr;
                 gvTabla.DataBind();
