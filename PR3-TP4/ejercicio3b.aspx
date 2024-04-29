@@ -24,7 +24,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:GridView ID="gvTabla" runat="server">
+                        <asp:GridView ID="gvTabla" runat="server" OnSelectedIndexChanged="gvTabla_SelectedIndexChanged">
                         </asp:GridView>
                     </td>
                     <td>&nbsp;</td>
