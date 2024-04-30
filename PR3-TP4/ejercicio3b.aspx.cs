@@ -26,6 +26,9 @@ namespace PR3_TP4
                     case "Tema 2":
                         idTemaSeleccionado = 2;
                         break;
+                    case "Tema 3":
+                        idTemaSeleccionado = 3;
+                        break;
                     default:
                         break;
                 }
